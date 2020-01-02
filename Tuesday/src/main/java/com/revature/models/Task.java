@@ -16,6 +16,12 @@ public class Task {
 	private int task_id;
 	@Column (name="task_name")
 	private String task_name;
+	
+	
+	public Task() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Task(int task_id, String task_name) {
 		super();
 		this.task_id = task_id;

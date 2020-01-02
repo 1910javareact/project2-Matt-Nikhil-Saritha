@@ -18,6 +18,13 @@ public class GroupData {
 	
 	@Column (name= "group_name")
     private String group_name;
+	
+	
+	
+	public GroupData() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public GroupData(int group_id, String group_name) {
 		super();

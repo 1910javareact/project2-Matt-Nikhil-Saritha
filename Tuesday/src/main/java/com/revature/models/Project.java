@@ -20,6 +20,12 @@ public class Project {
 	private String project_name;
 	
 	
+	public Project() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Project(int project_id, String project_name) {
 		super();
 		this.project_id = project_id;

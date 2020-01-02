@@ -16,16 +16,19 @@ public class UserDaoImpl {
 	
 	private SessionFactory sf;
 	
+	//Get current Hibernate Session
 	public UserDaoImpl(EntityManagerFactory emf) {
 		this.sf=emf.unwrap(SessionFactory.class);
 	}
 	
 	//FindAllUsers
+	//@Transactional --> NO need to do manually - t begin & commit 
+	// if we have service no need @Transactional at all
 	public List<Users> findAllUsers(){
 		List<Users> ret =new ArrayList<>();
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
-		Query<Users> q = s.createQuery("FROM USERS");
+		Query<Users> q = s.createQuery("FROM Users");
 		ret = q.list();
 		t.commit();
 		s.close();

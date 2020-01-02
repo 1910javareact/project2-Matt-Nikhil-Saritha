@@ -31,6 +31,12 @@ public class Users {
 	@Column(name="email")
 	private String email;
 	
+	
+	public Users() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	//Constructor
 	public Users(int user_id, String firstname, String lastname, String username, String password, String email) {
 		this.user_id = user_id;
