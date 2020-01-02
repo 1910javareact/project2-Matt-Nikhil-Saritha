@@ -13,7 +13,7 @@ import com.revature.models.Users;
 import com.revature.services.UserService;
 
 
-// UserRESTController <----> UserService <----> UserDAO <----> DB
+// UserController <----> UserService <----> UserDAO <----> DB
 
 
 @RestController
