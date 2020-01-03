@@ -9,11 +9,14 @@ public interface UserService {
 	
 	//Defining methods
 	
+	//Get All Users
 	public List<Users> getAllUsers();
 	
+	//Save one User
 	public Users saveOneUser(Users u);
 	
-//	public Users findUserByName(String username);
+	//Find User By Username & Password
+	public Users getByUsernameAndPassword(String username, String password);
 	
 	
 	

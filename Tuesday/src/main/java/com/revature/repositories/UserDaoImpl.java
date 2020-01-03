@@ -31,7 +31,6 @@ public class UserDaoImpl {
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
 		Query<Users> q = s.createQuery("FROM Users");
-		
 		ret = q.list();
 		t.commit();
 		s.close();

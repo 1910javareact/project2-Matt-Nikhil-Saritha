@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.models.Login;
 import com.revature.models.Users;
 import com.revature.services.UserService;
 
@@ -39,9 +42,19 @@ public class UserController {
 	}
 	
 //	@PostMapping("login")
-//	public Users login(@RequestBody String username, HttpServletRequest req) {
-//		Users u = us.findUserByName(username);
+//	public Users login(@RequestParam String username, @RequestParam String password, HttpServletRequest req) {
+//		Users u = us.getByUsernameAndPassword(username, password);
 //		req.getSession().setAttribute("users", u);
 //		return u;		
 //	}
+	
+	@PostMapping("login")
+	 public Users login(@RequestParam String username, @RequestParam String password, HttpServletRequest req) {
+		
+		Users u = us.getByUsernameAndPassword(username, password);
+		req.getSession().setAttribute("users", u);
+		return u;
+		
+		
+	}
 }

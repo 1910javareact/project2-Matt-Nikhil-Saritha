@@ -22,12 +22,14 @@ public class UserServiceImpl implements UserService {
 		this.ud = ud;
 	}
 
+	
 	@Override
 	public List<Users> getAllUsers() {
 		// TODO Auto-generated method stub
 		return ud.findAll();
 	}
 
+	
 	@Override
 	@Transactional
 	public Users saveOneUser(Users u) {
@@ -35,12 +37,10 @@ public class UserServiceImpl implements UserService {
 		return ud.save(u);
 	}
 
-//	@Override
-//	public Users findUserByName(String username) {
-//		// TODO Auto-generated method stub
-//		return ud.findUserByName(username);
-//	}
 	
-	
-
+	@Override
+	public Users getByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return ud.findByUsernameAndPassword(username, password);
+	}
 }

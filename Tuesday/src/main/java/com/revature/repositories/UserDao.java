@@ -9,9 +9,11 @@ public interface UserDao extends JpaRepository<Users,Integer> {
 	
 	
 	@Query ("FROM Users")
-public Users customMethod();
+    public Users customMethod();
 	
-//	public Users findUserByName( String username);
+
+	
+	public Users findByUsernameAndPassword(String username, String password);
 }
 
 
