@@ -13,7 +13,7 @@ public interface UserService {
 	
 	public Users saveOneUser(Users u);
 	
-	public Users findUserByName(String username);
+//	public Users findUserByName(String username);
 	
 	
 	

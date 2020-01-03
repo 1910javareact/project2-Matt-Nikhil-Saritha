@@ -35,11 +35,11 @@ public class UserServiceImpl implements UserService {
 		return ud.save(u);
 	}
 
-	@Override
-	public Users findUserByName(String username) {
-		// TODO Auto-generated method stub
-		return ud.findUserByName(username);
-	}
+//	@Override
+//	public Users findUserByName(String username) {
+//		// TODO Auto-generated method stub
+//		return ud.findUserByName(username);
+//	}
 	
 	
 

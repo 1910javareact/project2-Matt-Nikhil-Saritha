@@ -38,10 +38,10 @@ public class UserController {
 		return us.saveOneUser(u);	
 	}
 	
-	@PostMapping("login")
-	public Users login(@RequestBody String username, HttpServletRequest req) {
-		Users u = us.findUserByName(username);
-		req.getSession().setAttribute("users", u);
-		return u;		
-	}
+//	@PostMapping("login")
+//	public Users login(@RequestBody String username, HttpServletRequest req) {
+//		Users u = us.findUserByName(username);
+//		req.getSession().setAttribute("users", u);
+//		return u;		
+//	}
 }
