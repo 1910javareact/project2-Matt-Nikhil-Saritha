@@ -1,6 +1,9 @@
 package com.revature.services;
 
 import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.revature.models.Users;
@@ -16,7 +19,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	public UserServiceImpl(UserDao ud) {
-		this.ud=ud;
+		this.ud = ud;
 	}
 
 	@Override
@@ -26,6 +29,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public Users saveOneUser(Users u) {
 		// TODO Auto-generated method stub
 		return ud.save(u);

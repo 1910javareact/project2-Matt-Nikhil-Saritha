@@ -17,34 +17,31 @@ import com.revature.services.UserService;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api")
 @CrossOrigin
 public class UserController {
 	
 	private UserService us;
 	
-	// const injection ???
 	@Autowired
 	public UserController(UserService us) {
 		this.us = us;		
 	}
 	
-	@GetMapping("/users")
+	@GetMapping("users")
 	public List<Users> getAllUsers(){
 		return us.getAllUsers();
 	}
 	
-	@PostMapping
+	@PostMapping("save")
 	public Users saveOneUser(@RequestBody Users u) {
 		return us.saveOneUser(u);	
 	}
 	
+	@PostMapping("login")
 	public Users login(@RequestBody String username, HttpServletRequest req) {
 		Users u = us.findUserByName(username);
 		req.getSession().setAttribute("users", u);
-		return u;
-	
-		
+		return u;		
 	}
-
 }
