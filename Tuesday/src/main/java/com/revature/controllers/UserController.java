@@ -41,20 +41,14 @@ public class UserController {
 		return us.saveOneUser(u);	
 	}
 	
-//	@PostMapping("login")
-//	public Users login(@RequestParam String username, @RequestParam String password, HttpServletRequest req) {
-//		Users u = us.getByUsernameAndPassword(username, password);
-//		req.getSession().setAttribute("users", u);
-//		return u;		
-//	}
 	
 	@PostMapping("login")
 	 public Users login(@RequestParam String username, @RequestParam String password, HttpServletRequest req) {
 		
 		Users u = us.getByUsernameAndPassword(username, password);
 		req.getSession().setAttribute("users", u);
-		return u;
-		
-		
+		return u;	
 	}
+	
+	
 }
