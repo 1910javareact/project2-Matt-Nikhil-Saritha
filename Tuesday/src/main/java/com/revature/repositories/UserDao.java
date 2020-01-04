@@ -11,9 +11,10 @@ public interface UserDao extends JpaRepository<Users,Integer> {
 	@Query ("FROM Users")
     public Users customMethod();
 	
-
-	
+	//login
 	public Users findByUsernameAndPassword(String username, String password);
+	
+	
 }
 
 
