@@ -45,9 +45,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+
 	@Override
 	public Users findUserById(int id) {
 		// TODO Auto-generated method stub
 		return ud.getOne(id);
 	}
+
 }

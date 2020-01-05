@@ -47,6 +47,7 @@ public class UserDaoImpl {
 		s.close();
 		return u;
 	}
+
 	
 	public Users findUserById(int id) {
 		Session s =sf.openSession();
@@ -58,4 +59,5 @@ public class UserDaoImpl {
 		s.close();
 		return u;
 	}
+
 }
