@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,21 +41,19 @@ public class UserController {
 	public Users saveOneUser(@RequestBody Users u) {
 		return us.saveOneUser(u);	
 	}
+	@GetMapping ("{id}")
+	public Users findUserById(@PathVariable int id) {
+		return us.findUserById(id);
+	}
 	
-//	@PostMapping("login")
-//	public Users login(@RequestParam String username, @RequestParam String password, HttpServletRequest req) {
-//		Users u = us.getByUsernameAndPassword(username, password);
-//		req.getSession().setAttribute("users", u);
-//		return u;		
-//	}
 	
 	@PostMapping("login")
 	 public Users login(@RequestParam String username, @RequestParam String password, HttpServletRequest req) {
 		
 		Users u = us.getByUsernameAndPassword(username, password);
 		req.getSession().setAttribute("users", u);
-		return u;
-		
-		
+		return u;	
 	}
+	
+	
 }

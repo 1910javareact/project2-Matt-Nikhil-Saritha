@@ -47,4 +47,15 @@ public class UserDaoImpl {
 		s.close();
 		return u;
 	}
+	
+	public Users findUserById(int id) {
+		Session s =sf.openSession();
+		Transaction t = s.beginTransaction();
+		Query<Users> q = s.createQuery("FROM Users where userId = :uid");
+		q.setParameter("bid", id);
+		Users u =q.getSingleResult();
+		t.commit();
+		s.close();
+		return u;
+	}
 }
