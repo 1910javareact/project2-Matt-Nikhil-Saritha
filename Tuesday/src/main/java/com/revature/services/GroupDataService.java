@@ -6,6 +6,4 @@ public interface GroupDataService {
 
 	public GroupData findGroupById(int id);
 	
-	
-
 }

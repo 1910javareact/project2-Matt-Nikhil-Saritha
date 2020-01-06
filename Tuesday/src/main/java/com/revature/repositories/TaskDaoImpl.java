@@ -21,24 +21,24 @@ private SessionFactory sf;
 }
 	public Task findTaskById(int id) {
 		Session s = sf.openSession();
-		Transaction r = s.beginTransaction();
-		Query<Task> q = s.createQuery("FROM Task WHERE taskId = :tid");
+		Transaction t = s.beginTransaction();
+		Query<Task> q = s.createQuery("FROM Task WHERE task_id = :tid");
 		q.setParameter("tid", id);
-		Task t = q.getSingleResult();
+		Task task = q.getSingleResult();
 		t.commit ();
 		s.close();
-		return t;
+		return task;
 	}
 
 
-	public Task saveOneBear(Task t) {
+	public Task saveOneBear(Task task) {
 		// TODO Auto-generated method stub
 		Session s = sf.openSession();
-		Transaction r = s.beginTransaction();
-		s.save(t);
+		Transaction t = s.beginTransaction();
+		s.save(task);
 		t.commit();
 		s.close();
-		return t;
+		return task;
 	}
 }
 

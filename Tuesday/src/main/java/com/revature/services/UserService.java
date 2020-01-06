@@ -2,8 +2,8 @@
 package com.revature.services;
 
 import java.util.List;
-
 import com.revature.models.Users;
+
 
 public interface UserService {
 	
@@ -21,8 +21,7 @@ public interface UserService {
      
 	//Find User By ID 
 	public Users findUserById(int id);
-
 	
-	
+	public void deleteUserById(int id);
 	
 }

@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.revature.models.GroupData;
 import com.revature.models.Users;
 
 public class UserDaoImpl {
@@ -37,6 +38,7 @@ public class UserDaoImpl {
 		return ret;
 	}
 	
+	
 	//SaveOneUser
 	public Users saveOneUser(Users u) {
 		
@@ -52,12 +54,22 @@ public class UserDaoImpl {
 	public Users findUserById(int id) {
 		Session s =sf.openSession();
 		Transaction t = s.beginTransaction();
-		Query<Users> q = s.createQuery("FROM Users where userId = :uid");
-		q.setParameter("bid", id);
-		Users u =q.getSingleResult();
+		Query<Users> q = s.createQuery("FROM Users WHERE user_id = :uid");
+		q.setParameter("uid", id);
+		Users u = q.getSingleResult();
 		t.commit();
 		s.close();
 		return u;
+	}
+	
+	public void deleteUserById(int id) {
+		Session s =sf.openSession();
+		Transaction t = s.beginTransaction();
+		Query<Users> q = s.createQuery("DELETE FROM Users WHERE user_id = :uid");
+		q.setParameter("uid", id);
+		Users u = q.getSingleResult();
+		t.commit();
+		s.close();		
 	}
 
 }

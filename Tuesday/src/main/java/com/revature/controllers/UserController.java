@@ -4,6 +4,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.GroupData;
 import com.revature.models.Login;
 import com.revature.models.Users;
 import com.revature.services.UserService;
@@ -23,7 +25,7 @@ import com.revature.services.UserService;
 
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("user")
 @CrossOrigin
 public class UserController {
 	
@@ -48,7 +50,16 @@ public class UserController {
 	public Users findUserById(@PathVariable int id) {
 		return us.findUserById(id);
 	}
-
+	
+	@DeleteMapping("/users/{id}")
+	public String deleteUserById(@PathVariable int id) {
+		us.findUserById(id);
+		
+		if(us == null) {
+			throw new RuntimeException("User Id not found " + id);
+		}
+		return "Deleted User Id " + id;
+	}
 	
 	
 	@PostMapping("login")

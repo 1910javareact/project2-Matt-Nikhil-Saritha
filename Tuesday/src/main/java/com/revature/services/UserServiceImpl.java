@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
 		return ud.findAll();
 	}
 
-	
 	@Override
 	@Transactional
 	public Users saveOneUser(Users u) {
@@ -37,7 +36,6 @@ public class UserServiceImpl implements UserService {
 		return ud.save(u);
 	}
 
-	
 	@Override
 	public Users getByUsernameAndPassword(String username, String password) {
 		// TODO Auto-generated method stub
@@ -50,6 +48,13 @@ public class UserServiceImpl implements UserService {
 	public Users findUserById(int id) {
 		// TODO Auto-generated method stub
 		return ud.getOne(id);
+	}
+
+
+	@Override
+	public void deleteUserById(int id) {
+		// TODO Auto-generated method stub
+		  ud.deleteUserById(id);
 	}
 
 }

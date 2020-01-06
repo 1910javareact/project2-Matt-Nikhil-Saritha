@@ -22,7 +22,7 @@ public class ProjectDaoImpl {
 	public Project findProjectById(int id) {
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
-		Query<Project> q = s.createQuery("FROM Project projectId = :pid");
+		Query<Project> q = s.createQuery("FROM Project WHERE project_id = :pid");
 		q.setParameter("pid", id);
 		Project p = q.getSingleResult();
 		t.commit();
@@ -41,4 +41,3 @@ public class ProjectDaoImpl {
 	}
 
 }
-

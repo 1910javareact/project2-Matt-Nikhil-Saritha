@@ -15,7 +15,7 @@ public class ProjectServiceImpl implements ProjectService{
 	
 	@Autowired
 	public ProjectServiceImpl(ProjectDao pd) {
-		this.pd=pd;
+		this.pd = pd;
 	}
 	
 	
